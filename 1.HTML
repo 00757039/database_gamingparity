@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>0</title>
+    <style>
+
+    </style>
+    <script>
+(function(document) {
+  'use strict';
+
+  // 建立 LightTableFilter
+  var LightTableFilter = (function(Arr) {
+
+    var _input;
+
+    // 資料輸入事件處理函數
+    function _onInputEvent(e) {
+      _input = e.target;
+      var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+      Arr.forEach.call(tables, function(table) {
+        Arr.forEach.call(table.tBodies, function(tbody) {
+          Arr.forEach.call(tbody.rows, _filter);
+        });
+      });
+    }
+
+    // 資料篩選函數，顯示包含關鍵字的列，其餘隱藏
+    function _filter(row) {
+      var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+      row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+    }
+
+    return {
+      // 初始化函數
+      init: function() {
+        var inputs = document.getElementsByClassName('light-table-filter');
+        Arr.forEach.call(inputs, function(input) {
+          input.oninput = _onInputEvent;
+        });
+      }
+    };
+  })(Array.prototype);
+
+  // 網頁載入完成後，啟動 LightTableFilter
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete') {
+      LightTableFilter.init();
+    }
+  });
+
+})(document);
+    </script>
+</head>
+
+<body>
+  <style>
+    .demo {
+      width:100%;
+      height:100%;
+      border:1px solid #3C393C;
+      border-collapse:collapse;
+      border-spacing:2px;
+      padding:5px;
+    }
+    .demo caption {
+      caption-side:bottom;
+      text-align:right;
+    }
+    .demo th {
+      border:1px solid #3C393C;
+      padding:5px;
+      background:#BABABA;
+    }
+    .demo td {
+      border:1px solid #3C393C;
+      text-align:left;
+      padding:5px;
+    }
+  </style>
+  <table class="demo">
+    <caption>Table 1</caption>
+    <thead>
+    <tr>
+      <th>遊戲</th>
+      <th>價錢</th>
+      <th>資訊</th>
+      <th>開發者</th>
+      <th>購買平台</th>
+      <th>上市</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>&nbsp;terraria</td>
+      <td>&nbsp;200</td>
+      <td>N</td>
+      <td>&nbsp;Re-Logic</td>
+      <td>steam&nbsp;</td>
+      <td>&nbsp;2011</td>
+    </tr>
+    <tr>
+      <td>&nbsp;楓之谷</td>
+      <td>&nbsp;0</td>
+      <td>&nbsp;N</td>
+      <td>&nbsp;Nexon</td>
+      <td>&nbsp;online</td>
+      <td>&nbsp;2003</td>
+    </tr>
+    <tr>
+      <td>&nbsp;re:dive超異域公主連結</td>
+      <td>&nbsp;0</td>
+      <td>&nbsp;N</td>
+      <td>&nbsp;Cygames</td>
+      <td>&nbsp;online</td>
+      <td>&nbsp;2018</td>
+    </tr>
+    <tr>
+      <td>&nbsp;Minecraft</td>
+      <td>&nbsp;879</td>
+      <td>&nbsp;N</td>
+      <td>&nbsp;Mojang</td>
+      <td>&nbsp;Mojang</td>
+      <td>&nbsp;2011</td>
+    </tr>
+    <tr>
+      <td>&nbsp;Counter-Strike: Global Offensive</td>
+      <td>&nbsp;0</td>
+      <td>&nbsp;N</td>
+      <td>&nbsp;Vavle</td>
+      <td>&nbsp;steam&nbsp;</td>
+      <td>&nbsp;2012</td>
+    </tr>
+    <tr>
+      <td>&nbsp;電馭叛客2077</td>
+      <td>&nbsp;1379</td>
+      <td>&nbsp;N</td>
+      <td>&nbsp;CD Project</td>
+      <td>&nbsp;steam&nbsp;</td>
+      <td>&nbsp;2020</td>
+    </tr>
+    <tr>
+      <td>&nbsp;League of Legends</td>
+      <td>&nbsp;0</td>
+      <td>&nbsp;N</td>
+      <td>&nbsp;Riot</td>
+      <td>&nbsp;online</td>
+      <td>&nbsp;2009</td>
+    </tr>
+    <tr>
+      <td>&nbsp;Greed Island</td>
+      <td>&nbsp;5000000000</td>
+      <td>&nbsp;N</td>
+      <td>&nbsp;G.R.E.E.D</td>
+      <td>&nbsp;?</td>
+      <td>&nbsp;1987</td>
+    </tr>
+    <tbody>
+  </table>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Game search</title>
+<style type="text/CSS">
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+    padding: 20px 0;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 34px 0 14px 40px;
+}
+
+nav > ul {
+    background-color: rgb(230, 230, 230);
+    list-style: none;   /* 移除項目符號 */
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: inherit; /* 移除超連結顏色 */
+    display: block; /* 讓 <a> 填滿 <li> */
+    font-size: 1.2rem;
+    padding: 10px;
+    text-decoration: none;  /* 移除超連結底線 */
+}
+
+/* 滑鼠移到 <a> 時變成深底淺色 */
+nav li:hover {
+    background-color: rgb(115, 115, 115);
+    color: white;
+}
+
+.flex-nav {
+    display: flex;
+    /* justify-content: center;*/
+}
+#shadowbox2 {
+  border: 1px solid #333;
+  box-shadow: 8px 8px 5px #444;
+  padding: 8px 12px;
+  background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+  text-align: center;
+  margin:5px 130px 15px 130px;
+  font-size:15px;
+  
+}
+#shadowbox {
+  width: 18em;
+  border: 1px solid #333;
+  box-shadow: 8px 8px 5px #444;
+  padding: 8px 12px;
+  background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+  text-align: center;
+  margin:5px 130px 15px 130px;
+  font-size:15px;
+  
+}
+
+/*https://medium.com/@mingjunlu/building-a-simple-navbar-with-html-and-css-using-flexbox-and-inline-block-dfb9b10782d4*/
+
+
+</style>
+<script>
+    (function(document) {
+      'use strict';
+    
+      // 建立 LightTableFilter
+      var LightTableFilter = (function(Arr) {
+    
+        var _input;
+    
+        // 資料輸入事件處理函數
+        function _onInputEvent(e) {
+          _input = e.target;
+          var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+          Arr.forEach.call(tables, function(table) {
+            Arr.forEach.call(table.tBodies, function(tbody) {
+              Arr.forEach.call(tbody.rows, _filter);
+            });
+          });
+        }
+    
+        // 資料篩選函數，顯示包含關鍵字的列，其餘隱藏
+        function _filter(row) {
+          var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+          row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+        }
+    
+        return {
+          // 初始化函數
+          init: function() {
+            var inputs = document.getElementsByClassName('light-table-filter');
+            Arr.forEach.call(inputs, function(input) {
+              input.oninput = _onInputEvent;
+            });
+          }
+        };
+      })(Array.prototype);
+    
+      // 網頁載入完成後，啟動 LightTableFilter
+      document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'complete') {
+          LightTableFilter.init();
+        }
+      });
+    
+    })(document);
+        </script>
+</head>
+<nav>
+    <ul class="flex-nav">
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="game_search.html">遊戲比價</a></li>
+        <li><a href="data_update.html">更新資料</a></li>
+    </ul>
+</nav>
+<body background="https://i.ibb.co/CsMxYy0/tDQMOc.jpg">
+    <br></br>
+    <div  id="shadowbox2">
+    <a>遊戲名稱：<input type="text" name="Name"></a>
+        <a>價格：<input type="text" name="Price"></a>
+            <a>資訊：<input type="text" name="know"></a>
+                <a>遊戲廠商：<input type="text" name="maker"></a>
+                    <a>購買平台：<input type="text" name="seller"></a>
+                        <a>上市時間：<input type="text" name="time"></a>
+                        <a><input type="button" value="新增"></a>
+</div>
+<div  id="shadowbox2">
+    搜尋： <select>
+      <option>名稱
+      <option>價錢
+      <option>開發商
+      <option>購買平台
+      <option>上市
+      </select>
+      <input type="search" class="light-table-filter" data-table="order-table" placeholder="請輸入關鍵字">
+
+    <table class="order-table">
+      <thead>
+        <tr>
+          <th>遊戲</th>
+          <th>價錢</th>
+          <th>資訊</th>
+          <th>開發者</th>
+          <th>購買平台</th>
+          <th>上市</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td >terraria</td>
+          <td>200</td>
+          <td>N</td>
+          <td>Re-Logic</td>
+          <td>steam</td>
+          <td>2011 05 16</td>
+        </tr>
+        <tr>
+          <td>楓之谷</td>
+          <td>0</td>
+          <td>N</td>
+          <td>Nexon</td>
+          <td>online</td>
+          <td>2003 04 29</td>
+        </tr>
+        <tr>
+          <td>re:dive超異域公主連結</td>
+          <td>0</td>
+          <td>N</td>
+          <td>Cygames</td>
+          <td>google play/apple store</td>
+          <td>2018 02 15</td>
+        </tr>
+        <tr>
+          <td>Minecraft</td>
+          <td>879</td>
+          <td>N</td>
+          <td>Mojang</td>
+          <td>Mojang</td>
+          <td>2011 11 18</td>
+        </tr>
+
+        <tr>
+            <td>Counter-Strike: Global Offensive</td>
+            <td>0</td>
+            <td>N</td>
+            <td>Vavle</td>
+            <td>steam</td>
+            <td>2012 08 21</td>
+          </tr>
+
+          <tr>
+            <td>電馭叛客2077</td>
+            <td>1379</td>
+            <td>N</td>
+            <td>CD Projekt RED</td>
+            <td>STEAM</td>
+            <td>2020 12 10</td>
+          </tr>
+
+          <tr>
+            <td>League of Legends</td>
+            <td>0</td>
+            <td>N</td>
+            <td>Riot</td>
+            <td>online</td>
+            <td>2009 10 27</td>
+          </tr>
+
+          <tr>
+            <td>Greed Island</td>
+            <td>5000000000</td>
+            <td>N</td>
+            <td>G.R.E.E.D</td>
+            <td>?</td>
+            <td>1987 10 28</td>
+          </tr>
+      </tbody>
+    </table>
+    <a><input type="button" value="刪除"></a>
+</div>
+
+
+
+</body>
+</html>

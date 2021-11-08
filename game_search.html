@@ -1,0 +1,113 @@
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Game search</title>
+<style type="text/CSS">
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+    padding: 20px 0;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 34px 0 14px 40px;
+}
+
+nav > ul {
+    background-color: rgb(230, 230, 230);
+    list-style: none;   /* 移除項目符號 */
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: inherit; /* 移除超連結顏色 */
+    display: block; /* 讓 <a> 填滿 <li> */
+    font-size: 1.2rem;
+    padding: 10px;
+    text-decoration: none;  /* 移除超連結底線 */
+}
+
+/* 滑鼠移到 <a> 時變成深底淺色 */
+nav li:hover {
+    background-color: rgb(115, 115, 115);
+    color: white;
+}
+
+.flex-nav {
+    display: flex;
+    /* justify-content: center;*/
+}
+
+/*自動隱藏超出長寬的圖片*/
+.post  {
+overflow: hidden;
+}
+
+/*轉場的時間*/
+.post img {
+transition: all 0.5s ease 0s;
+}
+
+/*判斷滑鼠的動作放大圖片還有增加透明度*/
+.post img:hover {
+-moz-transform: scale(1.05);
+-ms-transform: scale(1.05);
+-o-transform: scale(1.05);
+-webkit-transform: scale(1.05);
+transform: scale(1.05);
+opacity: .5;
+}
+#shadowbox {
+  width: 15em;
+  border: 1px solid #333;
+  box-shadow: 8px 8px 5px #444;
+  padding: 8px 12px;
+  background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+  text-align: center;
+  margin:0px auto;
+  font-size:20px;
+  
+}
+
+
+/*https://medium.com/@mingjunlu/building-a-simple-navbar-with-html-and-css-using-flexbox-and-inline-block-dfb9b10782d4*/
+
+
+</style>
+</head>
+<nav>
+    <ul class="flex-nav">
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="game_search.html">遊戲比價</a></li>
+        <li><a href="data_update.html">更新資料</a></li>
+    </ul>
+</nav>
+<body background="https://i.ibb.co/CsMxYy0/tDQMOc.jpg">
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <div id="shadowbox" class="post"><a href="name_first.php"><img src="https://i.ibb.co/sR80b43/png-transparent-counter-strike-logo-counter-strike-global-offensive-counter-strike-condition-zero-co.png" border="3" style="height:92px; width:92px" /></a>
+    <div style="border:1px ;padding:20px;">
+        <strong>遊戲名稱</strong>
+    </div>
+    </div>
+    <br></br>
+    <div id="shadowbox" class="post"><a href="made_first.php"><img src="https://i.ibb.co/RD7QvH4/image.png"  border="3" style="height:92px; width:92px" /></a>
+    <div style="border:1px ;padding:10px;">
+        <strong>遊戲廠商</strong>
+    </div>
+    </div>
+
+    <br></br>
+    <div id="shadowbox" class="post"><a href="sell_first.php"><img src="https://i.ibb.co/SdLbVQt/images.png"  border="3" style="height:92px; width:92px" /></a>
+    <div style="border:1px ;padding:10px;">
+        <strong>遊戲平台</strong>
+    </div>
+    </div>
+    
+</body>
+</html>
